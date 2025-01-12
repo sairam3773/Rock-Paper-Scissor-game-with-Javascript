@@ -3,12 +3,19 @@ const Paper = document.getElementById("Paper");
 const Scissor = document.getElementById("Scissor");
 const Results = document.getElementById("Results");
 const computer = document.getElementById("computer");
-const attempt = document.getElementById("attempt");
+const scorez = document.getElementById("score");
+const Reset = document.getElementById("Reset");
 let result ;
-let attempts = 0;
 let randomNumber;
 let playermove;
 let computermove;
+
+
+const scores = {
+    wins : 0,
+    losses : 0,
+    ties : 0
+};
 
 function computerMove(){
     const randomNumber = Math.random();
@@ -24,7 +31,6 @@ function computerMove(){
         computermove = '✌️';
         computer.innerHTML = `computer : ${computermove}`
     }
-    console.log(computermove);
 }
 
 function playgame(playermove){
@@ -32,60 +38,60 @@ function playgame(playermove){
     if (playermove === 'Rock'){
             if(computermove === '✊'){
                 result = 'Tie';
-                attempts++;
             }
             else if (computermove === '🤚'){
                 result = 'You Lose';
-                attempts++;
             }
             else if (computermove === '✌️'){
                 result = 'You Win';
-                attempts++;
             }
         }
     else if(playermove === 'Paper'){
             if(computermove === '✊'){
                 result = 'You Win';
-                attempts++;
             }
             else if (computermove === '🤚'){
                 result = 'Tie';
-                attempts++;
             }
             else if (computermove === '✌️'){
                 result = 'You Lose';
-                attempts++;
             }
         }
     else if (playermove === 'Scissor'){
             if(computermove === '✊'){
                 result = 'You Lose';
-                attempts++;
             }
             else if (computermove === '🤚'){
                 result = 'You Win';
-                attempts++;
             }
             else if (computermove === '✌️'){
                 result = 'Tie';
-                attempts++;
             }
         }
-    attempt.textContent = `Attempts:${attempts}`
-    if (result === 'You Win'){
-        Results.innerHTML=(`You Won. It took you ${attempts} attempts`);
-    }
-    else{
-        Results.innerHTML=(`Result : ${result}`);
-    }
-
-    if(result === 'You Win'){
-        attempts++;
-        attempts = 0;
-    }
-
-    }
     
+    if (result === 'You Win'){
+        Results.innerHTML=(`You Won 🏆`);
+        scores.wins +=1;
+    }
+    else if (result === 'You Lose'){
+        Results.innerHTML=(`You Lose`);
+        scores.losses +=1;
+    }
+    else if (result === 'Tie'){
+        Results.innerHTML=(`Tie`)
+        scores.ties +=1;
+    }
+    Reset.onclick = function(){
+        scores.wins=0;
+        scores.losses=0;
+        scores.ties=0;
+    scorez.innerHTML = `Wins : ${scores.wins}, Losses : ${scores.losses}, Ties : ${scores.ties}`;}
+    scorez.innerHTML = `Wins : ${scores.wins}, Losses : ${scores.losses}, Ties : ${scores.ties}`;
+}
+
+
+
+
 // Rock button Function
 Rock.onclick = function(){
     computerMove();

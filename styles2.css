@@ -3,7 +3,7 @@ body{
     background-color: black;
     color: white;
 }
-button{
+.buttons button{
     padding: 30px 30px;
     font-size: 50px;
     background-color: hsl(0, 0%, 0%);
@@ -13,34 +13,38 @@ button{
     border: 1px solid white;
     border-radius: 5px;
 }
-button:hover{
+.buttons button:hover{
     font-size: 45px;
 }
-button:active{
+.buttons button:active{
     background-color: hsl(0, 0%, 0%);
     font-size: 50px;
 }
 #computer{
     font-size: 30px;
 }
-#attempt{
-    float: right;
-    margin-top: 0px;
-    margin-right: 100px;
+#Reset{
+    font-size: 15px;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    border: 1px solid;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
-#heading{
-    text-align: center;
-    margin-right: 0px;
+#Reset:active{
+    font-size: 13px;
 }
 @media screen and (max-width: 768px){
     body{
         font-size: 14px;
     }
-    button{
+    .buttons button{
         font-size: 40px;
         padding: 10px 10px;
     }
-    button:hover{
+    .buttons button:hover{
         font-size: 38px ;
     }
     #attempt{
