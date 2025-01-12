@@ -23,6 +23,15 @@ button:active{
 #computer{
     font-size: 30px;
 }
+#attempt{
+    float: right;
+    margin-top: 0px;
+    margin-right: 100px;
+}
+#heading{
+    text-align: center;
+    margin-right: 0px;
+}
 @media screen and (max-width: 768px){
     body{
         font-size: 14px;
@@ -30,5 +39,13 @@ button:active{
     button{
         font-size: 40px;
         padding: 10px 10px;
+    }
+    button:hover{
+        font-size: 38px ;
+    }
+    #attempt{
+        float: right;
+        margin-top: 0px;
+        margin-right: 20px;
     }
 }

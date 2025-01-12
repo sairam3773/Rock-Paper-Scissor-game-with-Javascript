@@ -3,6 +3,7 @@ const Paper = document.getElementById("Paper");
 const Scissor = document.getElementById("Scissor");
 const Results = document.getElementById("Results");
 const computer = document.getElementById("computer");
+const attempt = document.getElementById("attempt");
 let result ;
 let attempts = 0;
 let randomNumber;
@@ -41,9 +42,6 @@ function playgame(playermove){
                 result = 'You Win';
                 attempts++;
             }
-            if(result === 'You Win'){
-                attempts = 0;
-            }
         }
     else if(playermove === 'Paper'){
             if(computermove === '✊'){
@@ -58,10 +56,7 @@ function playgame(playermove){
                 result = 'You Lose';
                 attempts++;
             }
-            if(result === 'You Win'){
-                attempts = 0;
-            }
-            }
+        }
     else if (playermove === 'Scissor'){
             if(computermove === '✊'){
                 result = 'You Lose';
@@ -75,12 +70,22 @@ function playgame(playermove){
                 result = 'Tie';
                 attempts++;
             }
-            if(result === 'You Win'){
-                attempts = 0;}
         }
-    Results.innerHTML = `Result : ${result}`
+    attempt.textContent = `Attempts:${attempts}`
+    if (result === 'You Win'){
+        Results.innerHTML=(`You Won. It took you ${attempts} attempts`);
+    }
+    else{
+        Results.innerHTML=(`Result : ${result}`);
     }
 
+    if(result === 'You Win'){
+        attempts++;
+        attempts = 0;
+    }
+
+    }
+    
 // Rock button Function
 Rock.onclick = function(){
     computerMove();
